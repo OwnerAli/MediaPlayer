@@ -1,14 +1,12 @@
 package me.ali.mediaplayer.files.impl;
 
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.value.ObservableBooleanValue;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.util.Duration;
 import me.ali.mediaplayer.animations.impl.FadeInAnimation;
 import me.ali.mediaplayer.animations.impl.FadeOutAnimation;
 import me.ali.mediaplayer.files.domain.MediaFile;
@@ -17,21 +15,26 @@ import java.io.File;
 
 public class PlayableMediaFile extends MediaFile {
 
-    private final int duration;
+    private final Duration duration;
     private boolean playing;
 
     private final MediaPlayer mediaPlayer;
     private final ImageView pauseButtonImage;
 
-    public PlayableMediaFile(File file, String title, String author, int duration) {
+    public PlayableMediaFile(File file, String title, String author) {
         super(file, title, author);
-        this.duration = duration;
         this.playing = false;
 
-        this.mediaPlayer =  new MediaPlayer(new Media(getFile().toURI().toString()));
+        Media media = new Media(getFile().toURI().toString());
+        this.mediaPlayer =  new MediaPlayer(media);
         this.pauseButtonImage = new ImageView("C:\\Users\\altur\\Documents\\school\\CS\\mediaplayer\\src" +
                 "\\main\\resources\\video-pause-button.png");
         pauseButtonImage.visibleProperty().bind(new SimpleBooleanProperty(!playing));
+        this.duration = media.getDuration();
+    }
+
+    public Duration getDuration() {
+        return duration;
     }
 
     public void toggleMedia(Pane pane) {
@@ -60,8 +63,15 @@ public class PlayableMediaFile extends MediaFile {
     @Override
     public void display(Pane pane) {
         MediaView mediaView = new MediaView(mediaPlayer);
+        pane.getChildren().clear();
         pane.getChildren().add(mediaView);
-        mediaPlayer.setOnEndOfMedia(() -> pane.getChildren().add(new Label("DONE!")));
+        mediaView.setFitHeight(pane.getHeight());
+        mediaView.setFitWidth(pane.getWidth());
+    }
+
+    @Override
+    public String getType() {
+        return "Video/Audio";
     }
 
 }

@@ -19,7 +19,13 @@ public class ImageFile extends MediaFile {
     @Override
     public void display(Pane pane) {
         Image image = new Image(getFile().toURI().toString());
+        pane.getChildren().clear();
         pane.getChildren().add(new ImageView(image));
+    }
+
+    @Override
+    public String getType() {
+        return "Image";
     }
 
 }

@@ -1,0 +1,12 @@
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    /* 3:, 4: */
+    -fx-background-color: linear-gradient(#ff0000 0%, #ff7014 25%, #410021 75%, #464040 100%);
+    -fx-text-fill: #000000; /* 5 */
+}
+.list-cell { -fx-text-fill: black; /* 5 */ }
+.list-cell:odd { -fx-background-color: #6f6fff; /* 1 */ }
+.list-cell:even { -fx-background-color: #9696ff; /* for information */ }
+.list-cell:filled:hover {
+    -fx-background-color: #9696ff; /* 2 */
+    -fx-text-fill: white; /* 5 */
+}

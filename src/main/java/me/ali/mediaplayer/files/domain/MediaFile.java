@@ -18,6 +18,8 @@ public abstract class MediaFile {
 
     public abstract void display(Pane pane);
 
+    public abstract String getType();
+
     public File getFile() {
         return file;
     }
