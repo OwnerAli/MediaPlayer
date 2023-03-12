@@ -1,12 +1,13 @@
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-    /* 3:, 4: */
-    -fx-background-color: linear-gradient(#ff0000 0%, #ff7014 25%, #410021 75%, #464040 100%);
-    -fx-text-fill: #000000; /* 5 */
+    -fx-background-color: linear-gradient(#000000 0%, #004677 25%, #2acaea 75%, #000000 100%);
+    -fx-text-fill: #ffffff;
 }
-.list-cell { -fx-text-fill: black; /* 5 */ }
-.list-cell:odd { -fx-background-color: #6f6fff; /* 1 */ }
-.list-cell:even { -fx-background-color: #9696ff; /* for information */ }
+.list-cell { -fx-text-fill: black; }
+.list.solid {border-style: solid;}
+.list-cell:odd { -fx-background-color: #bebebe;  }
+.list-cell:even { -fx-background-color: #696969;  }
 .list-cell:filled:hover {
-    -fx-background-color: #9696ff; /* 2 */
-    -fx-text-fill: white; /* 5 */
+    -fx-background-color: #000000;
+    -fx-text-fill: white;
 }
+.scene { -fx-background-color: #000000; }
