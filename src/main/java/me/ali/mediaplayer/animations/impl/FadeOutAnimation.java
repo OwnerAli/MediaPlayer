@@ -17,8 +17,6 @@ public class FadeOutAnimation extends Animation {
                     new KeyFrame(Duration.seconds(0), new KeyValue(imageView.opacityProperty(), 1)),
                     new KeyFrame(Duration.seconds(1), new KeyValue(imageView.opacityProperty(), 0)));
             timeline.play();
-
-            return fadeTransition;
         }, imageView, 1);
     }
 

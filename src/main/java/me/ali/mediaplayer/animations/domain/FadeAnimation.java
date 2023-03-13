@@ -5,6 +5,6 @@ import javafx.animation.FadeTransition;
 @FunctionalInterface
 public interface FadeAnimation {
 
-    FadeTransition createFadeAnimation(FadeTransition fadeTransition);
+    void createFadeAnimation(FadeTransition fadeTransition);
 
 }

@@ -71,7 +71,7 @@ public class PlayableMediaFile extends MediaFile {
 
     @Override
     public String getType() {
-        return "Video/Audio";
+        return "Playable Media";
     }
 
 }
